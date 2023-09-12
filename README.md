@@ -6,7 +6,7 @@ Please use anaconda3 to install dependencies
 
 from the base directory run the following command
 
-conda create --name Diffuse-diddusion --file requirements.txt
+conda create --name Diffuse-diffusion --file requirements.txt
 
 ## Example
 
