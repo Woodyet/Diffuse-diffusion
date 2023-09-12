@@ -1,14 +1,31 @@
 # Diffuse-diffusion
 An adaption to stable diffusion XL to allow for gradual diffsuion of an image allowing for modifications to be made 
 
-## requirements
+## Requirements
+you can use anaconda or just install packages yourself with pip
+### Anaconda
 Please use anaconda3 to install dependencies 
 
-from the base directory run the following command
+from the base directory run the following command dependent on your operating system
 
-conda create --name Diffuse-diffusion --file requirements.txt
+linux
+conda create --name Diffuse-diffusion --file requirements_linux.txt
 
-## Example
+windows
+conda create --name Diffuse-diffusion --file requirements_windows.txt
+
+### Pip
+
+Please install the following packages using pip
+
+pip install transformers
+pip install accelerate
+pip install safetensors
+pip install opencv-python
+pip install tqdm
+pip install diffusers
+
+## Example use 
 
 Run the following command from the base directory to test the software
 
