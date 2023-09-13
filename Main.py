@@ -35,7 +35,9 @@ if __name__ == "__main__":
     parser.add_argument("--maxstrength", default=0.90, type=float, help="This indicates the maximum precentage of pixels that will change at frame 1 (value must be between 0.01 and 0.99)")
     parser.add_argument("--fps", default=2, type=int, help="Frames per second.")
     parser.add_argument("--guidance_scale", default=5.5, type=float, help="How much to deviate from the original image lower = less deviation higher = more")
-    
+    parser.add_argument("--med_VRAM", default=False, type=bool, help="Set if GPU VRAM is lower than 12GB")
+    parser.add_argument("--low_VRAM", default=False, type=bool, help="Set if GPU VRAM is lower than 8GB")
+
     requiredNamed = parser.add_argument_group('required named arguments')
     
     requiredNamed.add_argument("--output_folder_name", type=str, help="Name of the output folder.", required=True)
@@ -58,18 +60,20 @@ if __name__ == "__main__":
     maxstrength = args.maxstrength
     fps = args.fps
     guidance_scale = args.guidance_scale
-    
+    med_VRAM = args.med_VRAM
+    low_VRAM = args.low_VRAM
+
     #variable manipulation
     if os_DTEK == "Windows":
-        save_prefix = save_location+output_folder_name+"\\"
+        save_prefix = save_location+"\\"+output_folder_name+"\\"
     else:
-        save_prefix = save_location+output_folder_name+"/"
+        save_prefix = save_location+"/"+output_folder_name+"/"
     guidance_scales = []
     guidance_scales.append(guidance_scale)
     init_image = load_image(filename).convert("RGB")
     video_name = save_prefix + output_folder_name +'.avi'
     num_of_images-=1
-    
+
     try:
         os.mkdir(save_prefix)
     except:
@@ -85,7 +89,16 @@ if __name__ == "__main__":
     
     pipe = StableDiffusionXLImg2ImgPipeline.from_pretrained("stabilityai/stable-diffusion-xl-refiner-1.0", torch_dtype=torch.float16, variant="fp16", use_safetensors=True)
     pipe = pipe.to("cuda")
-    
+
+    pipe.enable_xformers_memory_efficient_attention()
+
+    # if low memory machine
+    if med_VRAM:
+        pipe.enable_sequential_cpu_offload()
+    elif low_VRAM:
+        pipe.enable_sequential_cpu_offload()
+        pipe.enable_vae_tiling()
+
     strengths = np.arange(minstrength, maxstrength, (maxstrength-minstrength)/num_of_images, dtype=float)
     
     #strengths = nonlinspace(minstrength, maxstrength, n=num_of_images, power=3)

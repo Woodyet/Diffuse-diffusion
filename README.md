@@ -24,6 +24,7 @@ pip install safetensors
 pip install opencv-python
 pip install tqdm
 pip install diffusers
+pip install xformers
 
 ## Example use 
 
