@@ -9,9 +9,11 @@ Please use anaconda3 to install dependencies
 from the base directory run the following command dependent on your operating system
 
 linux
+
 conda create --name Diffuse-diffusion --file requirements_linux.txt
 
 windows
+
 conda create --name Diffuse-diffusion --file requirements_windows.txt
 
 ### Pip
