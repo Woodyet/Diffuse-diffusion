@@ -93,11 +93,12 @@ if __name__ == "__main__":
     pipe.enable_xformers_memory_efficient_attention()
 
     # if low memory machine
-    if med_VRAM:
-        pipe.enable_sequential_cpu_offload()
-    elif low_VRAM:
+    
+    if low_VRAM:
         pipe.enable_sequential_cpu_offload()
         pipe.enable_vae_tiling()
+    elif med_VRAM:
+        pipe.enable_sequential_cpu_offload()
 
     strengths = np.arange(minstrength, maxstrength, (maxstrength-minstrength)/num_of_images, dtype=float)
     
