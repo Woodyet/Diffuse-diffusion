@@ -18,19 +18,13 @@ conda create --name Diffuse-diffusion --file requirements_windows.txt
 
 Please install the following packages using pip
 
-pip install transformers
-
-pip install accelerate
-
-pip install safetensors
-
-pip install opencv-python
-
-pip install tqdm
-
-pip install diffusers
-
-pip install xformers
+pip install transformers <br>
+pip install accelerate <br>
+pip install safetensors <br>
+pip install opencv-python <br>
+pip install tqdm <br>
+pip install diffusers <br>
+pip install xformers <br>
 
 ## Example use 
 
