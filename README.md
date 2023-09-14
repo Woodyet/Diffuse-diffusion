@@ -34,6 +34,23 @@ make sure to include the whole file path in "SET_SAVE_FOLDER_HERE"
 
 python Main.py --output_folder_name example_tree_burning --save_location SET_SAVE_FOLDER_HERE --seed_file Forest_Clean.jpg --positive_prompt "A Forest on fire, burning ravaged by wildfire" --negative_prompt "green, lush, trees"
 
+## Required parameters
+
+--output_folder_name - Name of output folder
+--save_location - Full path to stoare all generations
+--seed_file - Full path to image to guide the generation
+--positive_prompt - A prompt to gudie the diffusion process
+
+## Other parameters
+
+--seed - automatically randomly generated. Set if you want repeatable generations <br>
+--negative_prompt - A prompt to gudie the diffusion process <br>
+--num_of_images - total number of images to generate (more takes longer) <br>
+--fps - total number of images per second (more makes shorter videos) <br>
+--minstrength - the amount of pixels to change at img 0 <br>
+--maxstrength - the amount of pixels to change at img n where n = num_of_images <br>
+--guidance_scale - How much to deviate from the original image lower = less deviation higher = more" <br>
+
 ## Low VRAM parameters
 --med_VRAM MED_VRAM   Set if GPU VRAM is lower than 12GB <br>
 --low_VRAM LOW_VRAM   Set if GPU VRAM is lower than 8GB <br>
