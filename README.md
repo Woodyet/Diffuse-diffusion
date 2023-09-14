@@ -36,10 +36,10 @@ python Main.py --output_folder_name example_tree_burning --save_location SET_SAV
 
 ## Required parameters
 
---output_folder_name - Name of output folder
---save_location - Full path to stoare all generations
---seed_file - Full path to image to guide the generation
---positive_prompt - A prompt to gudie the diffusion process
+--output_folder_name - Name of output folder <br>
+--save_location - Full path to stoare all generations <br>
+--seed_file - Full path to image to guide the generation <br>
+--positive_prompt - A prompt to gudie the diffusion process <br>
 
 ## Other parameters
 
