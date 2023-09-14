@@ -16,7 +16,7 @@ conda create --name Diffuse-diffusion --file requirements_windows.txt
 
 ### Pip
 
-Please install the following packages using pip
+If installing yourself please install the following packages using pip
 
 pip install transformers <br>
 pip install accelerate <br>
