@@ -89,8 +89,11 @@ if __name__ == "__main__":
     
     pipe = StableDiffusionXLImg2ImgPipeline.from_pretrained("stabilityai/stable-diffusion-xl-refiner-1.0", torch_dtype=torch.float16, variant="fp16", use_safetensors=True)
     pipe = pipe.to("cuda")
-
-    pipe.enable_xformers_memory_efficient_attention()
+    
+    try:
+        pipe.enable_xformers_memory_efficient_attention()
+    except:
+        pass
 
     # if low memory machine
     
