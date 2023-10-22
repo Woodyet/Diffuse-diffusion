@@ -51,6 +51,10 @@ python Main.py --output_folder_name example_tree_burning --save_location SET_SAV
 --maxstrength - the amount of pixels to change at img n where n = num_of_images <br>
 --guidance_scale - How much to deviate from the original image lower = less deviation higher = more" <br>
 
+## Colab walkthrough
+
+https://colab.research.google.com/drive/1S8NkV8NM0s_rDg2bsN-9hRM63fIwwXlY?usp=sharing
+
 ## Low VRAM parameters
 --med_VRAM MED_VRAM   Set if GPU VRAM is lower than 12GB <br>
 --low_VRAM LOW_VRAM   Set if GPU VRAM is lower than 8GB <br>
